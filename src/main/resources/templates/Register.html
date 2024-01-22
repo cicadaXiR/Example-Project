@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<style>
+		input[type=text],
+		input[type=email],
+		input[type=password] {
+			width: 25%;
+			padding: 10px;
+			margin: 5px 0 22px 0;
+			display: inline-block;
+			border: none;
+			background: #f1f1f1;
+		}
+
+		input[type=text]:focus,
+		input[type=email]:focus,
+		input[type=password]:focus {
+			background-color: #ddd;
+			outline: none;
+		}
+
+		.container {
+			padding: 10px;
+			background-color: white;
+		}
+
+		.registerbtn {
+			background-color: #04AA6D;
+			color: white;
+			padding: 8px 5px;
+			margin: 8px 0;
+			border: none;
+			cursor: pointer;
+			width: 25%;
+			opacity: 0.9;
+		}
+
+		.registerbtn:hover {
+			opacity: 1;
+		}
+
+		.signin {
+			text-align: center;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<title>User Registration</title>
+</head>
+
+<body align="center">
+	<h2>User Registration</h2>
+	<form action="/user/register" method="post" th:object="${user}">
+
+		<input type="text" id="fname" placeholder="firstname" name="fname" th:field="*{firstName}" required>
+		<br>
+		<input type="text" id="lastName" placeholder="lastname" name="lastName" th:field="*{lastName}" required>
+		<br>
+		<input type="email" id="username" placeholder="email" name="email" th:field="*{email}" required>
+		<br>
+		<input type="password" id="password" placeholder="password" name="password" th:field="*{password}" required>
+		<br>
+		<button type="submit" class="registerbtn">Register</button>
+	</form>
+	<div class="container signin">
+		<p>Already have an account? <a href="http://localhost:9090/user/login">Sign in</a>.</p>
+	</div>
+</body>
+
+</html>
